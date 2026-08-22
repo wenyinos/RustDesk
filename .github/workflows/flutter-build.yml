@@ -1980,17 +1980,7 @@ jobs:
             pushd flatpak
             git clone https://github.com/flathub/shared-modules.git --depth=1
             # dbus.freedesktop.org is unreachable from CI, use the official gitlab source instead
-            python3 - <<'PYEOF'
-import json
-p = 'shared-modules/dbus-glib/dbus-glib.json'
-d = json.load(open(p))
-d['sources'] = [{
-    "type": "git",
-    "url": "https://gitlab.freedesktop.org/dbus/dbus-glib.git",
-    "commit": "623a4f3386a675060335e20afd810c6e10ae2cc8",
-}]
-json.dump(d, open(p, 'w'), indent=4)
-PYEOF
+            python3 -c 'import json; p="shared-modules/dbus-glib/dbus-glib.json"; d=json.load(open(p)); d["sources"]=[{"type":"git","url":"https://gitlab.freedesktop.org/dbus/dbus-glib.git","commit":"623a4f3386a675060335e20afd810c6e10ae2cc8"}]; json.dump(d, open(p,"w"), indent=4)'
             flatpak-builder --user --install-deps-from=flathub -y --force-clean --repo=repo ./build ./rustdesk.json
             flatpak build-bundle ./repo rustdesk-${{ env.VERSION }}-${{ matrix.job.arch }}${{ matrix.job.suffix }}.flatpak com.rustdesk.RustDesk
 
