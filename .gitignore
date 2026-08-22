@@ -60,3 +60,4 @@ flutter/web/
 /third_party/libdrmtap/
 # Local git worktrees
 .worktrees/
+rustdesk-登录参数说明.md
