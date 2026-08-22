@@ -12,6 +12,9 @@
 > **Misuse Disclaimer:** <br>
 > The developers of RustDesk do not condone or support any unethical or illegal use of this software. Misuse, such as unauthorized access, control or invasion of privacy, is strictly against our guidelines. The authors are not responsible for any misuse of the application.
 
+> [!NOTE]
+> **定制版客户端：** 本仓库为预置自建服务器的 RustDesk 定制版。默认 ID/中继服务器、API 服务器与公钥在程序启动时自动注入（`src/common.rs` 中的 `DEFAULT_SETTINGS`），开箱即用，无需手动配置。服务器设置页面保持可见且可修改——您在界面中的任何配置都会覆盖默认值。出于安全考虑，服务器地址与密钥不在本说明中公开，部署详情请联系仓库所有者。
+
 
 Chat with us: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https://twitter.com/rustdesk) | [Reddit](https://www.reddit.com/r/rustdesk) | [YouTube](https://www.youtube.com/@rustdesk)
 
