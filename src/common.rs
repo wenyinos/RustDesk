@@ -122,6 +122,22 @@ impl Drop for SimpleCallOnReturn {
 }
 
 pub fn global_init() -> bool {
+    // Custom client: preset the default self-hosted server so users see it in
+    // Settings -> Network out of the box. All three remain user-editable.
+    config::DEFAULT_SETTINGS.write().unwrap().extend([
+        (
+            config::keys::OPTION_CUSTOM_RENDEZVOUS_SERVER.to_string(),
+            "1.13.15.176".to_owned(),
+        ),
+        (
+            config::keys::OPTION_API_SERVER.to_string(),
+            "http://1.13.15.176:21114".to_owned(),
+        ),
+        (
+            "key".to_string(),
+            "+k5rBROFWVbQpaVdb+uycCRF5Uh54oHsHZWNmY8p2O4=".to_owned(),
+        ),
+    ]);
     #[cfg(target_os = "linux")]
     {
         if !crate::platform::linux::is_x11() {
