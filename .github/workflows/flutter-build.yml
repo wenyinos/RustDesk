@@ -1307,7 +1307,7 @@ jobs:
       - name: Upload signed update artifacts
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # v1
         with:
-          prerelease: true
+          prerelease: false
           fail_on_unmatched_files: true
           tag_name: ${{ env.TAG_NAME }}
           files: |
@@ -1324,7 +1324,7 @@ jobs:
       - name: Upload signed update metadata signature
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # v1
         with:
-          prerelease: true
+          prerelease: false
           fail_on_unmatched_files: true
           tag_name: ${{ env.TAG_NAME }}
           files: ./rustdesk-update.json.sig
@@ -1333,7 +1333,7 @@ jobs:
       - name: Publish signed update metadata
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # v1
         with:
-          prerelease: true
+          prerelease: false
           fail_on_unmatched_files: true
           tag_name: ${{ env.TAG_NAME }}
           files: ./rustdesk-update.json
